@@ -21,3 +21,11 @@ If you do not know how to program with python but wants to play the game, it's e
 2. Open a terminal and navigate into the directory which you cloned the repository
 
 3. Type "python3 snake-curses.py" and press Enter to run the snake game made with curses lib
+
+### Note 1
+
+I am still working in the code using pygame, soon it will be available
+
+### Note 2
+
+Any comments or suggestions are welcome, please feel free to help
