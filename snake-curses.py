@@ -45,6 +45,36 @@ def snake_collision_itself(snake_corpse):
         return 0
 
 
+def button_press(prev_button_direction):
+    if key == curses.KEY_LEFT and prev_button_direction != 1:
+        button_direction = 0
+    elif key == curses.KEY_RIGHT and prev_button_direction != 0:
+        button_direction = 1
+    elif key == curses.KEY_UP and prev_button_direction != 2:
+        button_direction = 3
+    elif key == curses.KEY_DOWN and prev_button_direction != 2:
+        button_direction = 2
+    else:
+        pass
+
+    prev_button_direction = button_direction
+
+    return button_direction, prev_button_direction
+
+
+def snake_movement(button_direction):
+    if button_direction == 1:
+        snake_head[1] += 1
+    elif button_direction == 0:
+        snake_head[1] -= 1
+    elif button_direction == 2:
+        snake_head[0] += 1
+    elif button_direction == 3:
+        snake_head[0] -= 1
+
+    return snake_head
+
+
 a = []
 while True:
     win.border(0)
@@ -56,30 +86,8 @@ while True:
     else:
         key = next_key
 
-    # 0 = LEFT, 1 = RIGHT, 3 = UP, 2 = DOWN
-    if key == curses.KEY_LEFT and prev_button_direction != 1:
-        button_direction = 0
-    elif key == curses.KEY_RIGHT and prev_button_direction != 0:
-        button_direction = 1
-    elif key == curses.KEY_UP and prev_button_direction != 2:
-        button_direction = 3
-    elif key == curses.KEY_DOWN and prev_button_direction != 2:
-        button_direction = 2
-    elif key == 'q':
-        break
-    else:
-        pass
-
-    prev_button_direction = button_direction
-
-    if button_direction == 1:
-        snake_head[1] += 1
-    elif button_direction == 0:
-        snake_head[1] -= 1
-    elif button_direction == 2:
-        snake_head[0] += 1
-    elif button_direction == 3:
-        snake_head[0] -= 1
+    button_direction, prev_button_direction = button_press(prev_button_direction)
+    snake_head = snake_movement(button_direction)
 
     if snake_head == food_position:
         score, food_position = new_food(score)
