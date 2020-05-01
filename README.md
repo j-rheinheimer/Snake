@@ -1,6 +1,6 @@
 # Is this a python inside a python?
 
-If you do not knows how to program with python but wants to play the game, it's easy! Do the following steps:
+If you do not know how to program with python but wants to play the game, it's easy! Do the following steps:
 
 ## Windows Tutorial
 
