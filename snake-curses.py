@@ -75,7 +75,6 @@ def snake_movement(button_direction):
     return snake_head
 
 
-a = []
 while True:
     win.border(0)
     win.timeout(100)
@@ -92,7 +91,6 @@ while True:
     if snake_head == food_position:
         score, food_position = new_food(score)
         snake_corpse.insert(0, list(snake_head))
-        a.append(food_position)
         win.addch(food_position[0], food_position[1], curses.ACS_DIAMOND)
 
     else:
@@ -109,5 +107,3 @@ screen.addstr(10, 30, 'Your Score is:  '+str(score))
 screen.refresh()
 time.sleep(2)
 curses.endwin()
-print(a)
-print(w, h)
